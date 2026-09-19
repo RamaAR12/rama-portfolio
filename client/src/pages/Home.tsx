@@ -99,15 +99,19 @@ export default function Home() {
     return () => { window.removeEventListener("scroll", onScroll); observer.disconnect(); };
   }, []);
 
+  const movePlayerBy = (dx: number, dy: number) => {
+    if (!gameStarted || gameWon) return;
+    setPlayer((current) => ({ x: Math.min(94, Math.max(6, current.x + dx)), y: Math.min(90, Math.max(10, current.y + dy)) }));
+  };
+
   useEffect(() => {
     const movePlayer = (event: KeyboardEvent) => {
-      if (!gameStarted || gameWon) return;
       const key = event.key.toLowerCase();
       const moves: Record<string, { x: number; y: number }> = { arrowleft: { x: -4, y: 0 }, a: { x: -4, y: 0 }, arrowright: { x: 4, y: 0 }, d: { x: 4, y: 0 }, arrowup: { x: 0, y: -4 }, w: { x: 0, y: -4 }, arrowdown: { x: 0, y: 4 }, s: { x: 0, y: 4 } };
       const move = moves[key];
-      if (!move) return;
+      if (!move || !gameStarted || gameWon) return;
       event.preventDefault();
-      setPlayer((current) => ({ x: Math.min(94, Math.max(6, current.x + move.x)), y: Math.min(90, Math.max(10, current.y + move.y)) }));
+      movePlayerBy(move.x, move.y);
     };
     window.addEventListener("keydown", movePlayer);
     return () => window.removeEventListener("keydown", movePlayer);
@@ -211,7 +215,7 @@ export default function Home() {
           <div className="game-instructions">{gameWon ? "You found every principle. That’s the whole idea." : gameStarted ? "Use ↑ ↓ ← → or W A S D to move" : "Move the RA orb and collect five design principles"}</div>
           <div className="game-player" style={{ left: `${player.x}%`, top: `${player.y}%` }}><span>RA</span></div>
           {gameTargets.map((target) => <button key={target.id} className={`game-target ${collectedTargets.includes(target.id) ? "is-collected" : ""}`} style={{ left: `${target.x}%`, top: `${target.y}%` }} onClick={() => collectTarget(target.id)} aria-label={`Collect ${target.label}`}><span>{target.label}</span></button>)}
-          {!gameStarted || gameWon ? <button className="game-start" onClick={startGame}>{gameWon ? "Play again" : "Start the mini game"}<ArrowUpRight size={17} /></button> : null}
+          {!gameStarted || gameWon ? <button className="game-start" onClick={startGame}>{gameWon ? "Play again" : "Start the mini game"}<ArrowUpRight size={17} /></button> : <div className="game-controls" aria-label="Touch controls"><button type="button" onClick={() => movePlayerBy(0, -4)} aria-label="Move up">↑</button><div><button type="button" onClick={() => movePlayerBy(-4, 0)} aria-label="Move left">←</button><button type="button" onClick={() => movePlayerBy(0, 4)} aria-label="Move down">↓</button><button type="button" onClick={() => movePlayerBy(4, 0)} aria-label="Move right">→</button></div></div>}
         </div>
         <p className="game-helper">A small playful corner of the portfolio — no leaderboard, no pressure, just a little curiosity.</p>
       </section>

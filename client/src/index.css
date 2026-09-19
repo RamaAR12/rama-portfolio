@@ -204,6 +204,10 @@ body { overflow-x: hidden; }
 .game-start { position: absolute; z-index: 4; inset: 50% auto auto 50%; transform: translate(-50%, -50%); display: inline-flex; align-items: center; gap: 17px; border: 0; border-radius: 999px; padding: 14px 18px 14px 20px; color: #ffffff; background: var(--purple-soft); font: 600 10px/1 "DM Mono", monospace; box-shadow: 0 12px 30px rgba(117,97,220,.25); transition: transform .2s var(--ease-out), background .2s ease; }
 .game-start:hover { transform: translate(-50%, -50%) scale(1.04); background: #806ce6; }
 .game-helper { margin: 17px 0 0; color: #706a79; font: 500 9px/1.4 "DM Mono", monospace; letter-spacing: .04em; }
+.game-controls { position: absolute; z-index: 5; right: 18px; bottom: 18px; display: none; flex-direction: column; align-items: center; gap: 5px; }
+.game-controls > div { display: flex; gap: 5px; }
+.game-controls button { display: grid; place-items: center; width: 38px; height: 34px; padding: 0; border: 1px solid rgba(117,97,220,.35); border-radius: 9px; color: var(--purple-soft); background: rgba(255,255,255,.82); box-shadow: 0 5px 14px rgba(61,45,113,.12); font-size: 19px; line-height: 1; touch-action: manipulation; user-select: none; -webkit-tap-highlight-color: transparent; }
+.game-controls button:active { color: #fff; background: var(--purple-soft); transform: scale(.94); }
 .experience-section { padding: 0 0 126px; }
 .experience-heading { margin-bottom: 39px; }
 .experience-list { border-top: 1px solid var(--line); }
@@ -328,6 +332,7 @@ body { overflow-x: hidden; }
   .game-header { align-items: flex-start; gap: 20px; }
   .game-score { padding-top: 8px; }
   .game-board { min-height: 360px; }
+  .game-controls { display: flex; }
   .experience-row { grid-template-columns: 1fr 20px; gap: 18px; }
   .experience-period { grid-column: span 2; padding-top: 0; }
   .skill-strip { display: block; }
@@ -398,6 +403,7 @@ body { overflow-x: hidden; }
 .dark-mode .orbit-core { background: rgba(22,19,32,.78); }
 .dark-mode .game-board { background: radial-gradient(circle at 50% 50%, rgba(43,31,91,.48), rgba(12,11,18,.96) 67%), #0d0c12; }
 .dark-mode .game-grid-lines { opacity: .8; }
+.dark-mode .game-controls button { border-color: rgba(193,184,255,.35); color: #d5ccff; background: rgba(31,27,49,.88); }
 .dark-mode .orbit-label:hover { background: rgba(29,25,43,.9); }
 .dark-mode .form-success { background: rgba(57,154,99,.12); }
 .theme-toggle { display: grid; place-items: center; width: 31px; height: 31px; border: 1px solid var(--line); border-radius: 50%; color: var(--muted-ink); background: transparent; transition: color .2s ease, border-color .2s ease, background .2s ease, transform .2s var(--ease-out); }
