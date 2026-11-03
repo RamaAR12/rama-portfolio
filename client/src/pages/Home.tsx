@@ -174,7 +174,7 @@ export default function Home() {
       <section className={`hero ${heroArabic ? "hero-arabic" : ""}`} id="top">
         <div className="hero-copy">
           <div className="eyebrow reveal"><span className="eyebrow-dot" />{heroArabic ? "من السعودية · أصمم تجارب رقمية للجميع" : "Based in Saudi Arabia · Designing everywhere"}</div>
-          <h1 className="hero-title reveal reveal-delay-1">{heroArabic ? <>أصمم <em>الوضوح</em><br />للعالم الرقمي<span className="hero-period">.</span></> : <>Designing <em>clarity</em><br />for the digital world<span className="hero-period">.</span></>}</h1>
+          <h1 className="hero-title reveal reveal-delay-1">{heroArabic ? <>أصمم <em>الوضوح</em><br />للعالم الرقمي<span className="hero-period">.</span></> : <>Designing <em>clarity</em><br />for people<span className="hero-period">.</span></>}</h1>
           <p className="hero-description reveal reveal-delay-2">{heroArabic ? "أنا راما، مصممة UI/UX وخريجة نظم معلومات حاسوبية، أحوّل الأفكار المعقدة إلى تجارب رقمية واضحة وإنسانية وسهلة الاستخدام." : "I’m Rama — a UI/UX designer and Computer Information Systems graduate turning complex ideas into thoughtful, useful, and quietly memorable experiences."}</p>
           <div className="hero-actions reveal reveal-delay-3">
             <button className="button button-primary" onClick={() => scrollToId("work")}>{heroArabic ? "استكشف أعمالي" : "Explore selected work"} <ArrowDownRight size={17} /></button>
@@ -200,7 +200,7 @@ export default function Home() {
       <section className="intro-section container-wide scroll-reveal" id="approach">
         <div className="section-kicker">/ 01 — The point of view</div>
         <div className="intro-grid">
-          <h2>Good design makes<br /><span>room for people.</span></h2>
+          <h2>Good design<br /><span>makes room.</span></h2>
           <div className="intro-copy">
             <p>I’m a detail-oriented designer specialized in wireframing, prototyping, responsive design, and design systems. I collaborate with technical teams to create user-focused digital solutions — especially for products that help people move through the world with more confidence.</p>
             <div className="stat-row"><div><strong>2025</strong><span>Bachelor of Computer<br />Information Systems</span></div><div><strong>03</strong><span>hands-on design<br />experiences</span></div><div><strong>09</strong><span>core tools &amp;<br />methods</span></div></div>
